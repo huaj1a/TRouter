@@ -68,4 +68,7 @@ dependencies {
     implementation(project(":trouter-api"))
     implementation(libs.androidx.appcompat.v170)
     implementation(libs.lottie.compose)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+    debugImplementation(libs.leakcanary.android)
 }

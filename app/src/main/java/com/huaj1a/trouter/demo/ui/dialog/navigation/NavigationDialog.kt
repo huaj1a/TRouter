@@ -1,8 +1,9 @@
 package com.huaj1a.trouter.demo.ui.dialog.navigation
 
 import android.content.Context
+import android.os.Bundle
 import com.huaj1a.trouter.annotation.Route
-import com.huaj1a.trouter.ui.BaseDialog
+import com.huaj1a.trouter.demo.databinding.NavigationDialogBinding
 
 /**
  * Description:
@@ -17,7 +18,16 @@ import com.huaj1a.trouter.ui.BaseDialog
 )
 class NavigationDialog(
     context: Context
-): BaseDialog(context) {
+): BaseNavigationDialog(context) {
+    
+    private lateinit var binding: NavigationDialogBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = NavigationDialogBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        addNavController(binding.navDialog)
+    }
     
 }
 

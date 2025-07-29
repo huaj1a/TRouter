@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.huaj1a.trouter.demo.R
 import com.huaj1a.trouter.demo.ui.dialog.BirdDialogPath
+import com.huaj1a.trouter.demo.ui.dialog.navigation.NavigationDialogPath
 import com.huaj1a.trouter.demo.ui.widget.TextButton
 import com.huaj1a.trouter.route.TRouter
 import com.huaj1a.trouter.route.ext.build
@@ -36,6 +37,15 @@ fun IdeaPage() {
                     .build(BirdDialogPath)
                     .withModalType(ModalType.MODAL)
                     .withAnimation(R.style.Demo_Bird_Anim)
+                    .navigation()
+            }
+
+            TextButton(
+                text = "2.Navigation Dialog"
+            ) {
+                TRouter.getInstance()
+                    .build(NavigationDialogPath)
+                    .withModalType(ModalType.SEMI_MODAL)
                     .navigation()
             }
         }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_navigation"
+    app:startDestination="@id/firstFragment">
+    
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.huaj1a.trouter.demo.ui.dialog.navigation.FirstFragment"
+        android:label="firstFragment">
+        
+        <action
+            android:id="@+id/first_nav_to_second"
+            app:destination="@+id/secondFragment"/>
+
+        <action
+            android:id="@+id/first_nav_to_third"
+            app:destination="@+id/thirdFragment"/>
+        
+    </fragment>
+    
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.huaj1a.trouter.demo.ui.dialog.navigation.SecondFragment"
+        android:label="secondFragment">
+
+        <action
+            android:id="@+id/second_nav_to_first"
+            app:destination="@+id/firstFragment"/>
+
+        <action
+            android:id="@+id/second_nav_to_third"
+            app:destination="@+id/thirdFragment"/>
+        
+    </fragment>
+
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.huaj1a.trouter.demo.ui.dialog.navigation.ThirdFragment"
+        android:label="thirdFragment">
+
+        <action
+            android:id="@+id/third_nav_to_first"
+            app:destination="@+id/firstFragment"/>
+
+        <action
+            android:id="@+id/third_nav_to_second"
+            app:destination="@+id/secondFragment"/>
+        
+    </fragment>
+
+</navigation>
