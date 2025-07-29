@@ -16,9 +16,13 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven(url = "https://oss.sonatype.org/content/repositories/snapshots/")
     }
 }
 
 rootProject.name = "TRouter"
 include(":app")
+include(":trouter-api")
+include(":trouter-annotation")
+include(":trouter-compiler")
  

@@ -2,14 +2,15 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.huaj1a.trouter"
+    namespace = "com.huaj1a.trouter.demo"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.huaj1a.trouter"
+        applicationId = "com.huaj1a.trouter.demo"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
@@ -35,7 +36,13 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
+        viewBinding = true
         compose = true
+    }
+    kapt {
+        arguments {
+            arg("TROUTER_MODULE_NAME", project.name)
+        }
     }
 }
 
@@ -56,4 +63,9 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    kapt(project(":trouter-compiler"))
+    implementation(project(":trouter-api"))
+    implementation(libs.androidx.appcompat.v170)
+    implementation(libs.lottie.compose)
 }

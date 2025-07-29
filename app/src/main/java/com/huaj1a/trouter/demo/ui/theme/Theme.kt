@@ -1,6 +1,5 @@
-package com.huaj1a.trouter.ui.theme
+package com.huaj1a.trouter.demo.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

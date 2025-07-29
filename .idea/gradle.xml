@@ -10,6 +10,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/trouter-annotation" />
+            <option value="$PROJECT_DIR$/trouter-api" />
+            <option value="$PROJECT_DIR$/trouter-compiler" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.TRouter" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.TRouter" parent="Theme.AppCompat.DayNight.NoActionBar" />
+    
+    <style name="Demo_Custom_Anim">
+        <item name="android:windowEnterAnimation">@anim/custom_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/custom_anim_out</item>
+    </style>
+    
+    <style name="Demo_Bird_Anim">
+        <item name="android:windowEnterAnimation">@anim/bird_in</item>
+        <item name="android:windowExitAnimation">@anim/bird_out</item>
+    </style>
 </resources>

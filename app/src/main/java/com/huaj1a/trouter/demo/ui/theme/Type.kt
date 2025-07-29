@@ -1,4 +1,4 @@
-package com.huaj1a.trouter.ui.theme
+package com.huaj1a.trouter.demo.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
