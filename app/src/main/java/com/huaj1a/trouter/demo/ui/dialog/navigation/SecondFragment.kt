@@ -27,11 +27,6 @@ class SecondFragment: BaseComposeFragment() {
                 NavHostFragment.findNavController(this@SecondFragment).popBackStack()
             }
             TextButton(
-                text = "go first"
-            ) {
-                NavHostFragment.findNavController(this@SecondFragment).navigate(R.id.second_nav_to_first)
-            }
-            TextButton(
                 text = "go third"
             ) {
                 NavHostFragment.findNavController(this@SecondFragment).navigate(R.id.second_nav_to_third)

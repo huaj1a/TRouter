@@ -59,10 +59,18 @@ abstract class BaseNavigationDialog(
                 destination: NavDestination,
                 arguments: SavedState?,
             ) {
-                navController?.currentBackStackEntry?.destination
-                navController?.currentBackStack?.value?.size?.let {
-                    Log.i("navigation stack", "${it}")
-                    if (it > 2) {
+                /**
+                 * Known issues:
+                 * If the same fragment is opened twice, there may be a problem that needs to be resolved
+                 */
+                navStack?.apply {
+                    if (!contains(destination.id)) {
+                        push(destination.id)
+                    } else if (peek() != destination.id) {
+                        pop()
+                    }
+
+                    if (size >= 2) {
                         ivBack.visibility = View.VISIBLE
                     } else {
                         ivBack.visibility = View.GONE
@@ -81,7 +89,11 @@ abstract class BaseNavigationDialog(
             onDestinationChangedListener = null
             navController = null
         }
-        navId?.let { 
+        navId?.let {
+            /**
+             * fragment attach activity
+             * So when discarding, it is necessary to actively release the fragment, otherwise it will cause memory leak
+             */
             val view = findViewById<FragmentContainerView>(it)
             view?.getFragment<Fragment>()?.let { fragment ->
                 val transaction = fragment.parentFragmentManager.beginTransaction()

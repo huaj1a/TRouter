@@ -26,16 +26,6 @@ class ThirdFragment: BaseComposeFragment() {
             ) {
                 NavHostFragment.findNavController(this@ThirdFragment).popBackStack()
             }
-            TextButton(
-                text = "go first"
-            ) {
-                NavHostFragment.findNavController(this@ThirdFragment).navigate(R.id.third_nav_to_first)
-            }
-            TextButton(
-                text = "go second"
-            ) {
-                NavHostFragment.findNavController(this@ThirdFragment).navigate(R.id.third_nav_to_second)
-            }
         }
     }
 }

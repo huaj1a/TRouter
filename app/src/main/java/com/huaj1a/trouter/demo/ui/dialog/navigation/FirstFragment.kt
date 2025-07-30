@@ -32,11 +32,6 @@ class FirstFragment: BaseComposeFragment() {
             ) {
                 NavHostFragment.findNavController(this@FirstFragment).navigate(R.id.first_nav_to_second)
             }
-            TextButton(
-                text = "go third"
-            ) {
-                NavHostFragment.findNavController(this@FirstFragment).navigate(R.id.first_nav_to_third)
-            }
         }
     }
 }
