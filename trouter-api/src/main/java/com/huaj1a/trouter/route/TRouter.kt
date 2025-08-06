@@ -2,14 +2,15 @@ package com.huaj1a.trouter.route
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Point
 import androidx.activity.ComponentActivity
 import com.huaj1a.trouter.TROUTER_PROCESSOR_PACKAGE_NAME
 import com.huaj1a.trouter.model.RouteRegistry
-import com.huaj1a.trouter.route.ext.checkBuild
 import com.huaj1a.trouter.route.ext.checkPermission
 import com.huaj1a.trouter.ui.BaseDialog
 import com.huaj1a.trouter.utils.ClassUtils
 import com.huaj1a.trouter.utils.Logger
+import com.huaj1a.trouter.window.ModalType
 import com.huaj1a.trouter.window.WindowsManager
 import java.lang.ref.WeakReference
 
@@ -47,14 +48,74 @@ class TRouter private constructor() {
         }
         val classMap = ClassUtils.getFileNameByPackageName(activity, TROUTER_PROCESSOR_PACKAGE_NAME)
         if (classMap.isEmpty()) {
-            logger?.w("init: route map is null")
+            logger?.w("trouter init: route map is null")
         } else {
-            logger?.w("init: route size 【${classMap.size}】")
+            logger?.w("trouter init: route size 【${classMap.size}】")
             classMap.forEach {
                 Class.forName(it).newInstance()
             }
         }
-        logger?.i("init finish")
+        logger?.i("trouter init finish")
+    }
+
+    fun build(path: String): TRouter {
+        builder = TRouterBuilder(
+            path = path
+        )
+        return this
+    }
+
+    fun build(builder: TRouterBuilder): TRouter {
+        this.builder = builder
+        return this
+    }
+
+    fun checkBuild() {
+        if (builder == null)
+            throw RuntimeException("TRouter error: must build first")
+    }
+
+    fun withPosition(position: Point): TRouter {
+        checkBuild()
+        builder?.position = position
+        return this
+    }
+
+    fun withBundle(key: String, value: Any): TRouter {
+        checkBuild()
+        if (builder?.bundle == null)
+            builder?.bundle = TRouterBundle()
+        builder?.bundle?.put(key, value)
+        return this
+    }
+
+    fun withModalType(modalType: ModalType): TRouter {
+        checkBuild()
+        builder?.modalType = modalType
+        return this
+    }
+
+    fun withDragEnable(enable: Boolean): TRouter {
+        checkBuild()
+        builder?.dragEnable = enable
+        return this
+    }
+
+    fun withDoubleClick(enable: Boolean): TRouter {
+        checkBuild()
+        builder?.doubleDismiss = enable
+        return this
+    }
+
+    fun withAnimation(animation: Int): TRouter {
+        checkBuild()
+        builder?.animation = animation
+        return this
+    }
+
+    fun permissionListener(permissionListener: TRouterPermissionListener): TRouter {
+        this.permissionListener = permissionListener
+        return this
     }
     
     fun navigation() {
@@ -97,8 +158,18 @@ class TRouter private constructor() {
                 logger?.e("navigation: dialog is error type")
                 return
             }
-            dialog.height = (windowsManager.screenHeight * routeMeta.height).toInt()
-            dialog.width = (windowsManager.screenWidth * routeMeta.width).toInt()
+            dialog.height =
+                if (routeMeta.height <= 1f) {
+                    (windowsManager.screenHeight * routeMeta.height).toInt()
+                } else {
+                    (windowsManager.density * routeMeta.height).toInt()
+                }
+            dialog.width =
+                if (routeMeta.width <= 1f) {
+                    (windowsManager.screenWidth * routeMeta.width).toInt()
+                } else {
+                    (windowsManager.density * routeMeta.width).toInt()
+                }
             dialog.position = builder!!.position
             windowsManager.openWindow(builder!!, dialog)
         } catch (e: Exception) {

@@ -13,11 +13,6 @@ import com.permissionx.guolindev.PermissionX
  * @Author: huaj1a
  * @Date: 2025/7/28
  */
-fun TRouter.permissionListener(permissionListener: TRouterPermissionListener): TRouter {
-    this.permissionListener = permissionListener
-    return this
-}
-
 fun TRouter.checkPermission(
     permissions: List<String>,
 ): Boolean {
