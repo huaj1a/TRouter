@@ -6,6 +6,7 @@ import android.util.DisplayMetrics
 import android.view.Gravity
 import android.view.WindowManager
 import com.huaj1a.trouter.R
+import com.huaj1a.trouter.route.TRouter
 import com.huaj1a.trouter.route.TRouterBuilder
 import com.huaj1a.trouter.ui.BaseDialog
 import java.lang.ref.WeakReference
@@ -21,6 +22,7 @@ internal class WindowsManager {
     
     var screenHeight = 0
     var screenWidth = 0
+    var density = 0f
     var anim: Int = R.style.TRouter_Anim_Fade
     
     private val dialogStack = ConcurrentHashMap<String, BaseDialog>(15)
@@ -31,19 +33,22 @@ internal class WindowsManager {
      * @param activity
      */
     fun init(activity: Activity) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            activity.windowManager.currentWindowMetrics.bounds.apply { 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            activity.windowManager.currentWindowMetrics.bounds.apply {
                 screenHeight = height()
                 screenWidth = width()
             }
+            this.density = activity.resources.displayMetrics.density
         } else {
             val displayMetrics = DisplayMetrics()
             activity.windowManager.defaultDisplay.getMetrics(displayMetrics)
-            displayMetrics.apply { 
+            displayMetrics.apply {
                 screenHeight = heightPixels
                 screenWidth = widthPixels
             }
+            this.density = activity.resources.displayMetrics.density
         }
+        TRouter.logger?.i("window init, screenHeight[${screenHeight}], screenWidth[${screenWidth}], density[${density}]")
     }
 
     /**
@@ -60,6 +65,7 @@ internal class WindowsManager {
         if (window == null) {
             return
         }
+        TRouter.logger?.i("${builder.path}: height[${dialog.height}], width[${dialog.width}]")
         window.apply {
             attributes = attributes.apply {
                 if (builder.position == null) {

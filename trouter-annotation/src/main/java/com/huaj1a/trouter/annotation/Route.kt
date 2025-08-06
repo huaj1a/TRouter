@@ -17,11 +17,15 @@ annotation class Route(
 
     /**
      * height percent
+     * if 0f < height <= 1f, it's the percentage of the screen
+     * if 1f < height, it's dp
      */
     val height: Float = 0.5f,
 
     /**
      * width percent
+     * if 0f < width <= 1f, it's the percentage of the screen
+     * if 1f < width, it's dp
      */
     val width: Float = 0.5f,
 
