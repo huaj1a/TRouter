@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("maven-publish")
 }
 
 android {
@@ -18,10 +19,6 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
     compileOptions {
@@ -37,18 +34,34 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.material3)
 
-    api(project(":trouter-annotation"))
+    api("com.huaj1a:trouter-annotation:1.0.0")
+    annotationProcessor(project(":trouter-compiler"))
     implementation(libs.permissionx)
+}
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                // 指定要发布的 Android 库组件
+                from(components["release"])
+
+                groupId = "com.huaj1a"
+                artifactId = "trouter-api"
+                version = "1.0.0"
+            }
+        }
+        repositories {
+            maven {
+                // 使用正确的本地路径格式（Windows）
+                url = uri("file:///D:/code/venus_project/TRouter/repository")
+            }
+        }
+    }
 }

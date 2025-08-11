@@ -43,5 +43,10 @@ data class TRouterBuilder(
     /**
      * single window anim
      */
-    var animation: Int? = null
+    var animation: Int? = null,
+
+    /**
+     * permission denied call back
+     */
+    var permissionListener: TRouterPermissionListener? = null
 )

@@ -1,6 +1,7 @@
 plugins {
     id("java-library")
     alias(libs.plugins.jetbrains.kotlin.jvm)
+    id("maven-publish")
 }
 java {
     sourceCompatibility = JavaVersion.VERSION_11
@@ -11,4 +12,25 @@ kotlin {
         jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
     }
 }
- 
+
+tasks.register("sourcesJar", Jar::class) {
+    archiveClassifier.set("sources")
+    from(sourceSets.main.get().allSource)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            from(components["java"])
+            artifact(tasks["sourcesJar"]) // 附加源码 JAR
+            groupId = "com.huaj1a"
+            artifactId = "trouter-annotation"
+            version = "1.0.0"
+        }
+    }
+    repositories {
+        maven {
+            url = uri("file:///D:/code/venus_project/TRouter/repository")
+        }
+    }
+}

@@ -64,8 +64,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    kapt(project(":trouter-compiler"))
-    implementation(project(":trouter-api"))
+    kapt("com.huaj1a:trouter-compiler:1.0.0")
+    implementation("com.huaj1a:trouter-api:1.0.0")
     implementation(libs.androidx.appcompat.v170)
     implementation(libs.lottie.compose)
     implementation(libs.androidx.navigation.fragment)

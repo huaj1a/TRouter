@@ -27,7 +27,6 @@ class TRouter private constructor() {
      */
     internal var context: WeakReference<Activity>? = null
     internal var builder: TRouterBuilder? = null
-    internal var permissionListener: TRouterPermissionListener? = null
     
     private var lifecycleObserver: TRouterLifecycleObserver? = null
     private val windowsManager = WindowsManager()
@@ -114,7 +113,8 @@ class TRouter private constructor() {
     }
 
     fun permissionListener(permissionListener: TRouterPermissionListener): TRouter {
-        this.permissionListener = permissionListener
+        checkBuild()
+        builder?.permissionListener = permissionListener
         return this
     }
     
@@ -176,7 +176,6 @@ class TRouter private constructor() {
             logger?.e(e.stackTraceToString())
         } finally {
             builder = null
-            permissionListener = null
         }
     }
 

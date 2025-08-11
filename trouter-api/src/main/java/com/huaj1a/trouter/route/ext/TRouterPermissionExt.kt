@@ -34,7 +34,7 @@ fun TRouter.checkPermission(
                 build(builder!!).navigation()
                 return@request
             }
-            permissionListener?.onDenied(deniedList)
+            builder?.permissionListener?.onDenied(deniedList)
         }
     return false
 }
