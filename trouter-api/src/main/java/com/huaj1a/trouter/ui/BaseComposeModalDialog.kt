@@ -16,10 +16,10 @@ import com.huaj1a.trouter.route.TRouterBundle
  * @Author: huaj1a
  * @Date: 2025/7/25
  */
-abstract class BaseComposeDialog(
+abstract class BaseComposeModalDialog(
     context: Context,
     bundleArgs: TRouterBundle? = null
-): BaseDialog(context, bundleArgs) {
+): BaseModalDialog(context, bundleArgs) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(

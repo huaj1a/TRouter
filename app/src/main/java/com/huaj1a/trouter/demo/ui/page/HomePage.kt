@@ -20,14 +20,6 @@ import com.huaj1a.trouter.demo.ui.dialog.SampleXmlDialogPath
 import com.huaj1a.trouter.demo.ui.widget.TextButton
 import com.huaj1a.trouter.route.TRouter
 import com.huaj1a.trouter.route.TRouterPermissionListener
-import com.huaj1a.trouter.route.ext.build
-import com.huaj1a.trouter.route.ext.permissionListener
-import com.huaj1a.trouter.route.ext.withAnimation
-import com.huaj1a.trouter.route.ext.withBundle
-import com.huaj1a.trouter.route.ext.withDoubleClick
-import com.huaj1a.trouter.route.ext.withDragEnable
-import com.huaj1a.trouter.route.ext.withModalType
-import com.huaj1a.trouter.route.ext.withPosition
 import com.huaj1a.trouter.window.ModalType
 
 /**

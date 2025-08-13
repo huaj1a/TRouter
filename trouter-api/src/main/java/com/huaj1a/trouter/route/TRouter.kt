@@ -7,7 +7,7 @@ import androidx.activity.ComponentActivity
 import com.huaj1a.trouter.TROUTER_PROCESSOR_PACKAGE_NAME
 import com.huaj1a.trouter.model.RouteRegistry
 import com.huaj1a.trouter.route.ext.checkPermission
-import com.huaj1a.trouter.ui.BaseDialog
+import com.huaj1a.trouter.ui.BaseModalDialog
 import com.huaj1a.trouter.utils.ClassUtils
 import com.huaj1a.trouter.utils.Logger
 import com.huaj1a.trouter.window.ModalType
@@ -154,7 +154,7 @@ class TRouter private constructor() {
                 constructor.newInstance(context!!.get(), it)
             } ?: constructor.newInstance(context!!.get())
 
-            if (dialog !is BaseDialog) {
+            if (dialog !is BaseModalDialog) {
                 logger?.e("navigation: dialog is error type")
                 return
             }

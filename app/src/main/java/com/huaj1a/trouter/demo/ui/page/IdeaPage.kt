@@ -11,9 +11,6 @@ import com.huaj1a.trouter.demo.ui.dialog.BirdDialogPath
 import com.huaj1a.trouter.demo.ui.dialog.navigation.NavigationDialogPath
 import com.huaj1a.trouter.demo.ui.widget.TextButton
 import com.huaj1a.trouter.route.TRouter
-import com.huaj1a.trouter.route.ext.build
-import com.huaj1a.trouter.route.ext.withAnimation
-import com.huaj1a.trouter.route.ext.withModalType
 import com.huaj1a.trouter.window.ModalType
 
 /**

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.WindowManager
 import com.huaj1a.trouter.route.TRouter
 import com.huaj1a.trouter.route.TRouterBuilder
-import com.huaj1a.trouter.ui.BaseDialog
+import com.huaj1a.trouter.ui.BaseModalDialog
 import java.lang.ref.WeakReference
 
 /**
@@ -19,7 +19,7 @@ class WindowTouchListener(
     private val screenHeight: Int,
     private val screenWidth: Int,
     private val builder: TRouterBuilder,
-    private val dialog: WeakReference<BaseDialog>
+    private val dialog: WeakReference<BaseModalDialog>
 ) : View.OnTouchListener {
     
     private var startX = 0

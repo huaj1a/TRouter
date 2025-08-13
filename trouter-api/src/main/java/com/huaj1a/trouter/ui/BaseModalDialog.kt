@@ -7,12 +7,12 @@ import com.huaj1a.trouter.route.TRouter
 import com.huaj1a.trouter.route.TRouterBundle
 
 /**
- * Description:
+ * Description: base modal dialog
  *
  * @Author: huaj1a
  * @Date: 2025/7/24
  */
-abstract class BaseDialog(
+abstract class BaseModalDialog(
     context: Context, 
     bundleParam: TRouterBundle ?= null
 ) : ComponentDialog(context) {

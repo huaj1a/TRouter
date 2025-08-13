@@ -8,7 +8,7 @@ import android.view.WindowManager
 import com.huaj1a.trouter.R
 import com.huaj1a.trouter.route.TRouter
 import com.huaj1a.trouter.route.TRouterBuilder
-import com.huaj1a.trouter.ui.BaseDialog
+import com.huaj1a.trouter.ui.BaseModalDialog
 import java.lang.ref.WeakReference
 import java.util.concurrent.ConcurrentHashMap
 
@@ -25,7 +25,7 @@ internal class WindowsManager {
     var density = 0f
     var anim: Int = R.style.TRouter_Anim_Fade
     
-    private val dialogStack = ConcurrentHashMap<String, BaseDialog>(15)
+    private val dialogStack = ConcurrentHashMap<String, BaseModalDialog>(15)
 
     /**
      * init
@@ -59,7 +59,7 @@ internal class WindowsManager {
      */
     fun openWindow(
         builder: TRouterBuilder,
-        dialog: BaseDialog
+        dialog: BaseModalDialog
     ) {
         val window = dialog.window
         if (window == null) {
