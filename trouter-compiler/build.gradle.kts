@@ -2,8 +2,12 @@ plugins {
     id("java-library")
     alias(libs.plugins.jetbrains.kotlin.jvm)
     id("kotlin-kapt")
-    id("maven-publish")
+    id("com.vanniktech.maven.publish") version "0.34.0"
 }
+
+val artifactId = "trouter-compiler"
+val version = "1.0.0"
+
 java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
@@ -18,30 +22,41 @@ dependencies {
     kapt(libs.auto.service)
     compileOnly(libs.auto.service)
     kapt(libs.auto.service)
-    implementation("com.huaj1a:trouter-annotation:1.0.0")
+    implementation(libs.trouter.annotation)
 }
 
-tasks.register("sourcesJar", Jar::class) {
-    archiveClassifier.set("sources")
-    from(sourceSets.main.get().allSource)
-}
+mavenPublishing {
+    coordinates("io.github.huaj1a", artifactId, version)
 
-publishing {
-    publications {
-        create<MavenPublication>("release") {
-            from(components["java"])
-            artifact(tasks["sourcesJar"]) // 附加源码 JAR
-            groupId = "com.huaj1a"
-            artifactId = "trouter-compiler"
-            version = "1.0.0"
+    pom {
+        name = artifactId
+        url = "https://github.com/huaj1a/TRouter"
+        description = "TRouter compiler"
+
+        licenses {
+            license {
+                name.set("Apache License 2.0")
+                url.set("https://www.apache.org/licenses/LICENSE-2.0")
+                distribution.set("repo")
+            }
+        }
+
+        developers {
+            developer {
+                name = "huaj1a"
+                url = "https://github.com/huaj1a"
+                email = "huaj1a.venus@gmail.com"
+            }
+        }
+
+        scm {
+            connection.set("scm:git:git://github.com/huaj1a/TRouter.git")
+            developerConnection.set("scm:git:ssh://github.com/huaj1a/TRouter.git")
+            url.set("https://github.com/huaj1a/TRouter.git")
         }
     }
-    repositories {
-        maven {
-            url = uri("file:///D:/code/venus_project/TRouter/repository")
-        }
-    }
+
+    publishToMavenCentral()
+    signAllPublications()
 }
-
-
  

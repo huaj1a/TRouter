@@ -2,8 +2,11 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("maven-publish")
+    id("com.vanniktech.maven.publish") version "0.34.0"
 }
+
+val artifactId = "trouter-api"
+val version = "1.0.0"
 
 android {
     namespace = "com.huaj1a.trouter"
@@ -39,29 +42,42 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.material3)
 
-    api("com.huaj1a:trouter-annotation:1.0.0")
-    annotationProcessor(project(":trouter-compiler"))
+    api(libs.trouter.annotation)
+    annotationProcessor(libs.trouter.compiler)
     implementation(libs.permissionx)
 }
 
+mavenPublishing {
+    coordinates("io.github.huaj1a", artifactId, version)
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                // 指定要发布的 Android 库组件
-                from(components["release"])
+    pom {
+        name = artifactId
+        url = "https://github.com/huaj1a/TRouter"
+        description = "TRouter api"
 
-                groupId = "com.huaj1a"
-                artifactId = "trouter-api"
-                version = "1.0.0"
+        licenses {
+            license {
+                name.set("Apache License 2.0")
+                url.set("https://www.apache.org/licenses/LICENSE-2.0")
+                distribution.set("repo")
             }
         }
-        repositories {
-            maven {
-                // 使用正确的本地路径格式（Windows）
-                url = uri("file:///D:/code/venus_project/TRouter/repository")
+
+        developers {
+            developer {
+                name = "huaj1a"
+                url = "https://github.com/huaj1a"
+                email = "huaj1a.venus@gmail.com"
             }
+        }
+
+        scm {
+            connection.set("scm:git:git://github.com/huaj1a/TRouter.git")
+            developerConnection.set("scm:git:ssh://github.com/huaj1a/TRouter.git")
+            url.set("https://github.com/huaj1a/TRouter.git")
         }
     }
+
+    publishToMavenCentral()
+    signAllPublications()
 }

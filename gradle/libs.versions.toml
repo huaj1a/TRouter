@@ -17,6 +17,9 @@ material = "1.12.0"
 jetbrainsKotlinJvm = "2.2.0"
 navigationFragment = "2.9.2"
 permissionx = "1.8.1"
+trouterAnnotation = "1.0.0"
+trouterApi = "1.0.0"
+trouterCompiler = "1.0.0"
 
 [libraries]
 androidx-appcompat-v170 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
@@ -42,6 +45,9 @@ leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", ve
 lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieCompose" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 permissionx = { module = "com.guolindev.permissionx:permissionx", version.ref = "permissionx" }
+trouter-annotation = { module = "io.github.huaj1a:trouter-annotation", version.ref = "trouterAnnotation" }
+trouter-api = { module = "io.github.huaj1a:trouter-api", version.ref = "trouterApi" }
+trouter-compiler = { module = "io.github.huaj1a:trouter-compiler", version.ref = "trouterCompiler" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
