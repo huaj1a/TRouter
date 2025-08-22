@@ -19,7 +19,7 @@ import com.huaj1a.trouter.annotation.Route
 import com.huaj1a.trouter.demo.ui.theme.pink
 import com.huaj1a.trouter.demo.ui.widget.CloseButton
 import com.huaj1a.trouter.route.TRouterBundle
-import com.huaj1a.trouter.ui.BaseComposeDialog
+import com.huaj1a.trouter.ui.BaseComposeModalDialog
 
 /**
  * Description:
@@ -35,7 +35,7 @@ import com.huaj1a.trouter.ui.BaseComposeDialog
 class BundleDialog(
     context: Context,
     bundle: TRouterBundle
-): BaseComposeDialog(context, bundle) {
+): BaseComposeModalDialog(context, bundle) {
     @Composable
     override fun ComposeContent() {
         val intValue by remember { mutableIntStateOf(bundle?.getInt(KEY_INT) ?: 0) }

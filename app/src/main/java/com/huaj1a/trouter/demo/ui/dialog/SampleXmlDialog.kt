@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import com.huaj1a.trouter.annotation.Route
 import com.huaj1a.trouter.demo.databinding.SampleXmlDialogBinding
-import com.huaj1a.trouter.ui.BaseDialog
+import com.huaj1a.trouter.ui.BaseModalDialog
 
 /**
  * Description:
@@ -19,7 +19,7 @@ import com.huaj1a.trouter.ui.BaseDialog
 )
 class SampleXmlDialog(
     context: Context
-): BaseDialog(context) {
+): BaseModalDialog(context) {
 
     private lateinit var binding: SampleXmlDialogBinding
     

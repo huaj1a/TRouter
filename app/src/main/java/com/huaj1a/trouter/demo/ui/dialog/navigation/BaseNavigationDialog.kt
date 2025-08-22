@@ -13,7 +13,7 @@ import androidx.navigation.findNavController
 import androidx.savedstate.SavedState
 import com.huaj1a.trouter.demo.R
 import com.huaj1a.trouter.route.TRouterBundle
-import com.huaj1a.trouter.ui.BaseDialog
+import com.huaj1a.trouter.ui.BaseModalDialog
 import java.util.Stack
 
 /**
@@ -25,7 +25,7 @@ import java.util.Stack
 abstract class BaseNavigationDialog(
     context: Context,
     bundle: TRouterBundle? = null,
-): BaseDialog(context, bundle) {
+): BaseModalDialog(context, bundle) {
     
     private var navId: Int? = null
     private var navStack: Stack<Int>? = null

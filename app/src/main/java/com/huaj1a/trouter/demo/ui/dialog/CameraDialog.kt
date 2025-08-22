@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.huaj1a.trouter.annotation.Route
 import com.huaj1a.trouter.demo.ui.theme.pink
 import com.huaj1a.trouter.demo.ui.widget.CloseButton
-import com.huaj1a.trouter.ui.BaseComposeDialog
+import com.huaj1a.trouter.ui.BaseComposeModalDialog
 
 /**
  * Description:
@@ -31,7 +31,7 @@ import com.huaj1a.trouter.ui.BaseComposeDialog
 )
 class CameraDialog(
     context: Context
-): BaseComposeDialog(context) {
+): BaseComposeModalDialog(context) {
     @Composable
     override fun ComposeContent() {
         Box(

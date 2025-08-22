@@ -14,7 +14,7 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.huaj1a.trouter.annotation.Route
 import com.huaj1a.trouter.demo.R
-import com.huaj1a.trouter.ui.BaseComposeDialog
+import com.huaj1a.trouter.ui.BaseComposeModalDialog
 
 /**
  * Description:
@@ -29,7 +29,7 @@ import com.huaj1a.trouter.ui.BaseComposeDialog
 )
 class BirdDialog(
     context: Context
-): BaseComposeDialog(context) {
+): BaseComposeModalDialog(context) {
     @Composable
     override fun ComposeContent() {
         
