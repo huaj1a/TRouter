@@ -11,7 +11,7 @@
 
 module|trouter-api|trouter-compiler|trouter-annotation
 ---|---|---|---|
-version|
+version|[![Download](https://img.shields.io/maven-central/v/io.github.huaj1a/trouter-api)](https://central.sonatype.com/artifact/io.github.huaj1a/trouter-api)|[![Download](https://img.shields.io/maven-central/v/io.github.huaj1a/trouter-compiler)](https://central.sonatype.com/artifact/io.github.huaj1a/trouter-compiler)|[![Download](https://img.shields.io/maven-central/v/io.github.huaj1a/trouter-annotation)](https://central.sonatype.com/artifact/io.github.huaj1a/trouter-annotation)
 
 #### I. Feature
 1. Support for multi-module
