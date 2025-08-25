@@ -7,6 +7,9 @@
 
 ---
 
+#### Demo
+[Gif](https://github.com/huaj1a/TRouter/blob/master/demo/TRouter-demo.gif)
+
 #### Lastest version
 
 module|trouter-api|trouter-compiler|trouter-annotation
