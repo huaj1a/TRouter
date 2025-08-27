@@ -97,9 +97,11 @@ version-log|[api-log](https://github.com/huaj1a/TRouter/blob/master/trouter-api/
    ```
    
    ```
+---
 
 #### The ending
-```
-thanks for [ARouter](https://github.com/alibaba/ARouter)
+thanks for [ARouter](https://github.com/alibaba/ARouter)。
+
 Maybe not a production framework, but I hope it's something fun
-```
+
+light up star ～
