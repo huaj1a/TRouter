@@ -8,7 +8,7 @@
 ---
 
 #### Demo
-[Gif](https://github.com/huaj1a/TRouter/blob/master/demo/TRouter-demo.gif)
+[Apk](https://github.com/huaj1a/TRouter/blob/master/demo/TRouter-demo-1.0.0.apk)  |  [Gif](https://github.com/huaj1a/TRouter/blob/master/demo/TRouter-demo.gif)
 
 #### Lastest version
 
