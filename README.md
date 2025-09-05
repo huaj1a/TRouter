@@ -95,7 +95,9 @@ version-log|[api-log](https://github.com/huaj1a/TRouter/blob/master/trouter-api/
 
 5. Add confusing rules (If Proguard is turn on)
    ```
-   
+-keep class com.huaj1a.trouter.**
+-keep interface com.huaj1a.trouter.**
+-keep class * extends com.huaj1a.trouter.ui.BaseModalDialog {*;}
    ```
 ---
 
